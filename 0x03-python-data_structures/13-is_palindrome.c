@@ -32,7 +32,7 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	len = *head;
-	while (len->next != NULL)
+	while (len)
 	{
 		len = len->next;
 		l++;
