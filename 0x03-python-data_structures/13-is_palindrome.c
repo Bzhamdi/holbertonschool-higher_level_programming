@@ -9,14 +9,20 @@
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	unsigned int i = 0;
+	listint_t *nth;
 
-	if (head == NULL)
-		return (NULL);
-	for (i = 0; i < index && head != NULL; i++)
-		head = head->next;
-		if (head)
-			return (head);
-		return (NULL);
+	nth = head;
+	while (i < index)
+	{
+		nth = nth->next;
+		i++;
+
+		if (!nth)
+			return (0);
+
+	}
+
+	return (nth);
 }
 /**
  * is_palindrome -  checks if a singly linked list is a palindrome.
