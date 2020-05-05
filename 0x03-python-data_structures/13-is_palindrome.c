@@ -9,20 +9,14 @@
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	unsigned int i = 0;
-	listint_t *nth;
 
-	nth = head;
-	while (i < index)
-	{
-		nth = nth->next;
-		i++;
-
-		if (!nth)
-			return (0);
-
-	}
-
-	return (nth);
+	if (head == NULL)
+		return (NULL);
+	for (i = 0; i < index && head != NULL; i++)
+		head = head->next;
+		if (head)
+			return (head);
+		return (NULL);
 }
 /**
  * is_palindrome -  checks if a singly linked list is a palindrome.
@@ -45,12 +39,19 @@ int is_palindrome(listint_t **head)
 		len = len->next;
 		l++;
 	}
-	for (i = 0; i < (l / 2); i++)
+	if (l == 1)
+		return (0);
+	if (l % 2 == 0)
 	{
-		first = get_nodeint_at_index(*head, i);
-		last = get_nodeint_at_index(*head, (l - 1 - i));
-		if (first->n != last->n)
-			return (0);
+		for (i = 0; i < (l / 2); i++)
+		{
+			first = get_nodeint_at_index(*head, i);
+			last = get_nodeint_at_index(*head, (l - 1 - i));
+			if (first->n != last->n)
+				return (0);
+		}
 	}
+	else
+		return (0);
 	return (1);
 }
