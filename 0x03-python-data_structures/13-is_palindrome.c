@@ -41,17 +41,16 @@ int is_palindrome(listint_t **head)
 	}
 	if (l == 1)
 		return (0);
-	if (l % 2 == 0)
+
+	for (i = 0; i < (l / 2); i++)
 	{
-		for (i = 0; i < (l / 2); i++)
-		{
-			first = get_nodeint_at_index(*head, i);
-			last = get_nodeint_at_index(*head, (l - 1 - i));
-			if (first->n != last->n)
-				return (0);
-		}
+		first = get_nodeint_at_index(*head, i);
+		last = get_nodeint_at_index(*head, (l - 1 - i));
+		if (first->n != last->n)
+			return (0);
 	}
-	else
+	if (l % 2 != 0)
 		return (0);
+
 	return (1);
 }
