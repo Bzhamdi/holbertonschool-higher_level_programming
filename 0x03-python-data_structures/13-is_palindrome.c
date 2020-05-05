@@ -41,6 +41,8 @@ int is_palindrome(listint_t **head)
 	}
 	if (l == 1)
 		return (0);
+	if (l == 0)
+		return (1);
 
 	for (i = 0; i < (l / 2); i++)
 	{
@@ -49,8 +51,6 @@ int is_palindrome(listint_t **head)
 		if (first->n != last->n)
 			return (0);
 	}
-	if (l % 2 != 0)
-		return (0);
 
 	return (1);
 }
