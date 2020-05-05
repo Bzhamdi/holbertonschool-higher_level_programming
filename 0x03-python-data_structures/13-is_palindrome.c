@@ -40,8 +40,6 @@ int is_palindrome(listint_t **head)
 		l++;
 	}
 	if (l == 1)
-		return (0);
-	if (l == 0)
 		return (1);
 
 	for (i = 0; i < (l / 2); i++)
