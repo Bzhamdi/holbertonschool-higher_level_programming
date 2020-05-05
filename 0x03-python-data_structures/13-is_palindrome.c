@@ -32,13 +32,11 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	len = *head;
-	while (len)
+	while (len->next != NULL)
 	{
 		len = len->next;
 		l++;
 	}
-	if (l == 1)
-		return (0);
 	for (i = 0; i < (l / 2); i++)
 	{
 		first = get_nodeint_at_index(*head, i);
