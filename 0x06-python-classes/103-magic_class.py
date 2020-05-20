@@ -12,6 +12,7 @@ class MagicClass:
             self.__radius = radius
         else:
             raise TypeError('radius must be a number')
+            self.__radius = radius
 
     def area(self):
         """ar """
