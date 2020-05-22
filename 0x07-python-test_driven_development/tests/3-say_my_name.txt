@@ -1,0 +1,28 @@
+Importing the function from the module:
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Check1:
+	>>> say_my_name("Hamdi", "Bz")
+	My name is Hamdi Bz
+
+Check2:
+	>>> say_my_name("Hamdi")
+	My name is Hamdi 
+
+Check3:
+	>>> say_my_name(1, "Bz")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Check4:
+	>>> say_my_name("Hamdi", 1)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+Check5:
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
