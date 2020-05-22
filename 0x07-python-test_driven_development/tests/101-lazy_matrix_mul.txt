@@ -1,0 +1,30 @@
+Importing the function from the module:
+	>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+Check1:
+	>>> lazy_matrix_mul()
+	Traceback (most recent call last):
+	...
+	TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Check2:
+	 >>> print(lazy_matrix_mul([[7, 8], [9, 10]], [[], []]))
+	 []
+
+Check3:
+	 >>> lazy_matrix_mul([[7, 8], [9, 10]], [[7, 6], [5, 4, 3]])
+	 Traceback (most recent call last):
+	 ...
+	 ValueError: setting an array element with a sequence.
+
+Check4:
+	 >>> lazy_matrix_mul([[1, 2], ["bz", 7]], [[7, 2], [5, 9]])
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: invalid data type for einsum
+
+Check5:
+	 >>> lazy_matrix_mul(None, [[7, 8], [8, 8]])
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: Object arrays are not currently supported

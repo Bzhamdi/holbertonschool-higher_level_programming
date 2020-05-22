@@ -1,0 +1,53 @@
+Importing the function from the module:
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Check1:
+	>>> text_indentation("Hi. hello: what?")
+	Hi.
+	<BLANKLINE>
+	hello:
+	<BLANKLINE>
+	what?
+	<BLANKLINE>
+
+Check2:
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+
+Check2:
+        >>> text_indentation("hamdi: bz?)
+        Traceback (most recent call last):
+        ...
+        SyntaxError: EOL while scanning string literal
+
+Check3:
+	 >>> text_indentation(None)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: text must be a string
+
+Check4:
+	 >>> text_indentation(5)
+         Traceback (most recent call last):
+         ...
+         TypeError: text must be a string
+
+Check5:
+	 >>> text_indentation(" ? : . ")
+	 ?
+	 <BLANKLINE>
+	 :
+	 <BLANKLINE>
+	 .
+	 <BLANKLINE>
+
+
+Check6:
+         >>> text_indentation("""Lorem "")
+         Traceback (most recent call last):
+         ...
+         SyntaxError: EOF while scanning triple-quoted string literal
