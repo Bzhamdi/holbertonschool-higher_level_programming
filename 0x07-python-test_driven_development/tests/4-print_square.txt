@@ -27,5 +27,5 @@ Check5:
 	>>> print_square("1")
 	Traceback (most recent call last):
 	...
-	size must be an integer
+	TypeError: size must be an integer
 
