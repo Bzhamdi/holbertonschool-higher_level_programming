@@ -5,7 +5,7 @@ check:
 	>>> my_list.print_sorted()
 	[1, 2, 3, 7]
 	>>> print(my_list)
-	[4, 3, 7, 2]
+	[3, 1, 7, 2]
 
 check:
 	>>> my_list = MyList([-1, 0, 1])
@@ -18,11 +18,6 @@ check:
 	[-1, 0, 3, 3]
 
 check:
-	>>> my_list.print_sorted("hamdi")
-	Traceback (most recent call last):
-	TypeError: print_sorted() takes 1 positional argument but 2 were given
-
-check:
 	>>> my_list = MyList()
 	>>> my_list.print_sorted()
 	[]
@@ -32,7 +27,4 @@ check:
 	>>> my_list.print_sorted()
 	[2]
 
-Check:
-	 >>> issubclass(MyList, list)
-	 True
 
