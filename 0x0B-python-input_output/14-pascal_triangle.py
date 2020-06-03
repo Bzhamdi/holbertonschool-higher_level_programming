@@ -18,7 +18,8 @@ def pascal_triangle(n):
         return []
     box = []
     box.append([1])
-    box.append([1, 1])
+    if n >= 2:
+        box.append([1, 1])
     for i in range(1, n - 1):
         case = []
         case.append(1)
