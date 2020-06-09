@@ -38,3 +38,12 @@ class Base:
                 dic.append(cls.to_dictionary(i))
         with open(file_name, 'w') as file:
             file.write(cls.to_json_string(dic))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        returns the list of the JSON string representation
+        """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
