@@ -5,6 +5,7 @@ module contains the Base
 
 
 import json
+import os.path as path
 
 
 class Base:
@@ -65,11 +66,9 @@ class Base:
         """returns a list of instances """
         filename = cls.__name__ + ".json"
         lines = []
-        try:
-            with open(filename, 'r') as file:
+        if path.exists(filename):
+            with open(filename) as file:
                 lines = cls.from_json_string(file.read())
-            for i in lines:
-                lines.append(cls.create(**i))
-        except:
-            pass
+            for i, e in enumerate(lines):
+                lines[i] = cls.create(**lines[i])
         return lines
