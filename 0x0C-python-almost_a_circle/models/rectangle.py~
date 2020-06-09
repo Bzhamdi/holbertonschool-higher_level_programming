@@ -1,0 +1,107 @@
+#!/usr/bin/python3
+"""
+module contains the Rectangle class
+"""
+from models.base import *
+
+
+class Rectangle(Base):
+    """rectangle"""
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """constroctor"""
+        super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+
+    @property
+    def height(self):
+        """height.get()"""
+        return self.__height
+
+    @property
+    def x(self):
+        """x.get()"""
+        return self.__x
+
+    @property
+    def y(self):
+        """y.get()"""
+        return self.__y
+
+    @property
+    def width(self):
+        """width.get()"""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """width.set()"""
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
+
+    @height.setter
+    def height(self, value):
+        """height.set()"""
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise TypeError("height must be > 0")
+        self.__height = value
+
+    @x.setter
+    def x(self, x):
+        """x.set()"""
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = x
+
+    @y.setter
+    def y(self, y):
+        """y.set()"""
+        if type(y) is not int:
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = y
+
+    def area(self):
+        """ rectangle.area """
+        return self.__height * self.__width
+
+    def display(self):
+        """ printable string """
+        str = ""
+        if self.__width == 0 or self.__height == 0:
+            return str
+        print(("\n" * self.__y) + "\n".join((" " * self.__x) + ("#" * self.__width)
+                                            for j in range(self.__height)))
+
+    def __str__(self):
+        """toString"""
+        return "[Rectangle] ({:d}) {:d}/{:d} - <{:d}>/<{:d}>".format(self.id, self.__x, self.__y, self.__width, self.height)
+
+    def update(self, *args, **kwargs):
+        """Update the class Rectangle by adding the public method """
+        if len(args):
+            for i, x in enumerate(args):
+                if i == 0:
+                    self.id = x
+                elif i == 1:
+                    self.width = x
+                elif i == 2:
+                    self.height = x
+                elif i == 3:
+                    self.x = x
+                elif i == 4:
+                    self.y = x
+        else:
+            for i, x in kwargs.items():
+                setattr(self, i, x)
