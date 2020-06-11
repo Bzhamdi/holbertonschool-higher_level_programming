@@ -6,6 +6,7 @@ module contains the Base
 
 import json
 import os.path as path
+import csv
 
 
 class Base:
@@ -72,3 +73,42 @@ class Base:
             for i, e in enumerate(lines):
                 lines[i] = cls.create(**lines[i])
         return lines
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save in csv return list of obj"""
+        with open(cls.__name__ + ".csv", 'w') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            if cls.__name__ is "Rectangle":
+                for obj in list_objs:
+                    fnames = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                    csv_writer.writerow(fnames)
+            elif cls.__name__ is "Square":
+                for obj in list_objs:
+                    fnamess = [obj.id, obj.size, obj.x, obj.y]
+                    csv_writer.writerow(fnamess)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        load from csv file method
+        Returns:list of objects
+        """
+        if path.exists(cls.__name__ + ".csv") is False:
+            return []
+        with open(cls.__name__ + ".csv", 'r') as file:
+            lst = []
+            reader = csv.reader(file)
+            for i in reader:
+                if cls.__name__ is "Rectangle":
+                    dic = {"id": int(i[0]),
+                           "width": int(i[1]),
+                           "height": int(i[2]),
+                           "x": int(i[3]),
+                           "y": int(i[4])}
+                elif cls.__name__ is "Square":
+                    dic = {"id": int(i[0]), "size": int(i[1]),
+                           "x": int(i[2]), "y": int(i[3])}
+                o = cls.create(**dic)
+                lst.append(o)
+        return lst
