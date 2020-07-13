@@ -1,5 +1,3 @@
 -- show databases
 
 show databases
-
-
