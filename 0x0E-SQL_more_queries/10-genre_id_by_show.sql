@@ -1,3 +1,3 @@
--- join 
+-- join
 
-SELECT t.title, tg.genre_id from tv_shows t join tv_show_genres tg on tg.show_id = t.id order by t.title ,tg.genre_id;
+SELECT t.title, tg.genre_id FROM tv_shows t JOIN tv_show_genres tg on tg.show_id = t.id ORDER BY t.title ,tg.genre_id;
