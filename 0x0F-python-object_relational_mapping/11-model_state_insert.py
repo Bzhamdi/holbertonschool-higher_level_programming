@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 setOne
+print after the commit
 """
 
 from model_state import Base, State
@@ -17,6 +18,6 @@ if __name__ == "__main__":
     session = Session()
     state = State(name='Louisiana')
     session.add(state)
-    print(str(state.id))
     session.commit()
+    print(state.id)
     session.close()
