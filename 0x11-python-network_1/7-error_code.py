@@ -5,11 +5,12 @@ import sys
 error code
 """
 
-try:
-    response = requests.get(sys.argv[1])
+if __name__ == "__main__":
 
-        
-    print(response.text)
-    
-except Exception as err:
-    print("Error code: {}".format(response.status_code))
+    try:
+        response = requests.get(sys.argv[1])
+
+        print(response.text)
+
+    except Exception as err:
+        print("Error code: {}".format(response.status_code))
