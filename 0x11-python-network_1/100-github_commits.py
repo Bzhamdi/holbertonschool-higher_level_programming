@@ -5,8 +5,12 @@ crud get response get top 10 commit from github
 
 import requests
 import sys
-s = requests.Session()
-r = s.get('https://api.github.com/repos/{}/{}/commits'.format(sys.argv[2], sys.argv[1]))
+
+r = requests.get('https://api.github.com/repos/{}/{}/commits'
+                 .format(sys.argv[2], sys.argv[1]))
 repos = r.json()
-for x in repos [0:10]:
-  print("{}: {}".format(x.get('sha'), x.get('commit').get('author').get('name')))
+for x in repos[0:10]:
+    print(
+        "{}: {}".format(
+            x.get('sha'),
+            x.get('commit').get('author').get('name')))
