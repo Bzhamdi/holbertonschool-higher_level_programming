@@ -12,7 +12,7 @@ if (process.argv.length < 4) {
     }
   }
   for (let j = 3; j <= process.argv.length; j++) {
-    if (process.argv[j] > max2 && process.argv[j] < max) {
+    if (parseInt(process.argv[j]) > parseInt(max2) && parseInt(process.argv[j]) < parseInt(max)) {
       max2 = process.argv[j];
     }
   }
