@@ -7,7 +7,7 @@ if (process.argv.length < 4) {
   let max = process.argv[2];
   let max2 = process.argv[2];
   for (let i = 3; i <= process.argv.length; i++) {
-    if (process.argv[i] > max) {
+    if (parseInt(process.argv[i]) > parseInt(max)) {
       max = process.argv[i];
     }
   }
