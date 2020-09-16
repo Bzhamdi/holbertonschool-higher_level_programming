@@ -2,7 +2,7 @@
 /* js is a number */
 
 if (process.argv.length < 4) {
-  console.log(1);
+  console.log(0);
 } else {
   let max = process.argv[2];
   let max2 = process.argv[2];
